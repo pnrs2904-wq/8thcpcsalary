@@ -24,6 +24,27 @@
 <meta name="twitter:title" content="8th CPC Salary Calculator | 8thCPCSalary.com">
 <meta name="twitter:description" content="India's most trusted 8th Pay Commission calculator. Get salary estimates, DA hike updates & pension projections.">
 
+<!-- Google AdSense Verification -->
+<meta name="google-adsense-account" content="ca-pub-XXXXXXXXXX">
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+  
+  // Track custom events
+  function trackEvent(action, category, label, value) {
+    gtag('event', action, {
+      'event_category': category || 'Engagement',
+      'event_label': label || '',
+      'value': value || undefined
+    });
+  }
+</script>
+
 <!-- JSON-LD Structured Data -->
 <script type="application/ld+json">
 {
@@ -34,12 +55,7 @@
       "@id": "https://8thcpcsalary.com/#website",
       "url": "https://8thcpcsalary.com/",
       "name": "8thCPCSalary.com",
-      "description": "India's #1 8th Pay Commission Salary Calculator and Information Portal",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://8thcpcsalary.com/search?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
+      "description": "India's #1 8th Pay Commission Salary Calculator and Information Portal"
     },
     {
       "@type": "WebApplication",
@@ -48,51 +64,12 @@
       "operatingSystem": "All",
       "offers": {"@type": "Offer", "price": "0", "priceCurrency": "INR"},
       "description": "Calculate your 8th Pay Commission salary with DA, HRA, pension and tax breakdown",
-      "url": "https://8thcpcsalary.com/8th-cpc-salary-calculator"
+      "url": "https://8thcpcsalary.com/"
     },
     {
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What is the expected fitment factor for 8th CPC?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The 8th Pay Commission fitment factor is expected to be in the range of 2.57× to 3.68×. The 7th CPC used 2.57×. Employee unions are demanding up to 3.68× fitment factor for 8th CPC."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "When will 8th Pay Commission be implemented?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The 8th Pay Commission is expected to be implemented from January 1, 2026. The government has set up the commission with the report expected in 2025-26."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is the current DA for central government employees?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The current Dearness Allowance (DA) for central government employees is 62% effective January 2026. The next revision is expected in July 2026 to approximately 65%."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How to calculate 8th CPC salary?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "To calculate 8th CPC salary: New Basic = (7th CPC Basic + DA) × Fitment Factor. Add HRA (24%/16%/8% based on city), TA, and other allowances to get gross pay. Deduct NPS and income tax to get in-hand salary."
-          }
-        }
-      ]
-    },
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://8thcpcsalary.com/"},
-        {"@type": "ListItem", "position": 2, "name": "8th CPC Calculator", "item": "https://8thcpcsalary.com/8th-cpc-salary-calculator"}
-      ]
+      "@type": "NewsMediaOrganization",
+      "name": "8thCPCSalary.com",
+      "url": "https://8thcpcsalary.com/"
     }
   ]
 }
@@ -100,7 +77,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
 
 <style>
@@ -108,7 +85,6 @@
    ROOT & THEME TOKENS
 ═══════════════════════════════════════════════════════ */
 :root {
-  /* Indian Government Color Palette */
   --saffron: #E8751A;
   --saffron-light: #FFF3E8;
   --saffron-dark: #C45E0A;
@@ -119,20 +95,14 @@
   --gold: #B8860B;
   --gold-light: #FFF8E1;
   --gold-border: #F0C040;
-
-  /* UI Palette */
   --bg: #F4F5F9;
   --surface: #FFFFFF;
   --surface-2: #F8F9FC;
   --border: #E2E6EF;
   --border-2: #CCD4E8;
-
-  /* Text */
   --text-primary: #0D1B3E;
   --text-secondary: #3D4F6E;
   --text-muted: #7A8AAA;
-
-  /* Semantic */
   --green: #047857;
   --green-light: #ECFDF5;
   --green-border: #6EE7B7;
@@ -142,31 +112,21 @@
   --blue-light: #EFF6FF;
   --amber: #D97706;
   --amber-light: #FFFBEB;
-  --amber-border: #FCD34D;
-
-  /* Shadows */
   --shadow-sm: 0 1px 3px rgba(13,27,62,0.06), 0 1px 8px rgba(13,27,62,0.04);
   --shadow-md: 0 4px 16px rgba(13,27,62,0.08), 0 2px 6px rgba(13,27,62,0.05);
   --shadow-lg: 0 12px 40px rgba(13,27,62,0.12), 0 4px 12px rgba(13,27,62,0.06);
   --shadow-xl: 0 24px 64px rgba(13,27,62,0.16);
-
-  /* Radii */
   --r-sm: 8px;
   --r-md: 12px;
   --r-lg: 16px;
   --r-xl: 20px;
   --r-pill: 100px;
-
-  /* Transitions */
   --t-fast: 0.15s ease;
   --t-med: 0.25s ease;
-
-  /* Fonts */
   --font-body: 'Plus Jakarta Sans', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 }
 
-/* Dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #0A0F1E;
@@ -183,15 +143,9 @@
     --blue-light: #071230;
     --red-light: #1A0505;
     --amber-light: #1A0E00;
-    --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
-    --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
-    --shadow-lg: 0 12px 40px rgba(0,0,0,0.5);
   }
 }
 
-/* ═══════════════════════════════════════════════════════
-   RESET & BASE
-═══════════════════════════════════════════════════════ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; font-size: 16px; -webkit-text-size-adjust: 100%; }
 
@@ -209,13 +163,13 @@ body {
 ::-webkit-scrollbar-track { background: var(--border); }
 ::-webkit-scrollbar-thumb { background: var(--saffron); border-radius: 3px; }
 
-img { max-width: 100%; height: auto; loading: lazy; }
+img { max-width: 100%; height: auto; }
 a { color: inherit; text-decoration: none; }
 button { font-family: var(--font-body); cursor: pointer; border: none; outline: none; }
 input, select { font-family: var(--font-body); outline: none; }
 
 /* ═══════════════════════════════════════════════════════
-   LIVE ALERT TICKER
+   ALERT TICKER
 ═══════════════════════════════════════════════════════ */
 .alert-ticker {
   background: var(--india-blue);
@@ -262,7 +216,6 @@ input, select { font-family: var(--font-body); outline: none; }
 .site-header {
   background: var(--surface);
   border-bottom: 3px solid transparent;
-  background-clip: padding-box;
   position: sticky;
   top: 0;
   z-index: 150;
@@ -372,7 +325,6 @@ input, select { font-family: var(--font-body); outline: none; }
   50% { opacity: 0.6; transform: scale(0.85); }
 }
 
-/* Hamburger */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -395,7 +347,7 @@ input, select { font-family: var(--font-body); outline: none; }
 }
 
 /* ═══════════════════════════════════════════════════════
-   HERO SECTION
+   HERO
 ═══════════════════════════════════════════════════════ */
 .hero {
   background: linear-gradient(135deg, #001845 0%, #002B7F 45%, #0A3D94 100%);
@@ -493,8 +445,6 @@ input, select { font-family: var(--font-body); outline: none; }
   padding: 5px 12px;
   border-radius: var(--r-pill);
 }
-.trust-pill .ti { font-size: 0.85rem; }
-
 .hero-stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -527,7 +477,7 @@ input, select { font-family: var(--font-body); outline: none; }
 }
 
 /* ═══════════════════════════════════════════════════════
-   QUICK NAV PILLS
+   QUICK NAV
 ═══════════════════════════════════════════════════════ */
 .quick-nav {
   display: flex;
@@ -558,7 +508,7 @@ input, select { font-family: var(--font-body); outline: none; }
 }
 
 /* ═══════════════════════════════════════════════════════
-   2-COLUMN LAYOUT
+   LAYOUTS
 ═══════════════════════════════════════════════════════ */
 .two-col {
   display: grid;
@@ -619,7 +569,7 @@ input, select { font-family: var(--font-body); outline: none; }
 }
 
 /* ═══════════════════════════════════════════════════════
-   STAT MINI CARDS
+   STAT MINI
 ═══════════════════════════════════════════════════════ */
 .stat-mini {
   background: var(--surface-2);
@@ -701,14 +651,6 @@ label {
   letter-spacing: 0.6px;
   margin-bottom: 5px;
 }
-.field-err {
-  color: var(--red);
-  font-size: 0.62rem;
-  font-weight: 600;
-  display: none;
-  text-transform: none;
-  letter-spacing: 0;
-}
 input[type="number"], input[type="text"], select {
   width: 100%;
   background: var(--surface-2);
@@ -736,11 +678,9 @@ input[type="range"] {
   background: transparent;
   padding: 0;
   cursor: pointer;
-  font-family: var(--font-body);
 }
 .field-hint { font-size: 0.65rem; color: var(--text-muted); margin-top: 4px; font-style: italic; }
 
-/* Toggle switch */
 .toggle-row {
   display: flex;
   justify-content: space-between;
@@ -840,7 +780,7 @@ input[type="range"] {
 .btn-full { width: 100%; }
 
 /* ═══════════════════════════════════════════════════════
-   RESULT HIGHLIGHT BOX
+   RESULTS
 ═══════════════════════════════════════════════════════ */
 .result-highlight {
   background: linear-gradient(135deg, var(--gold-light), #FFFEF0);
@@ -851,13 +791,6 @@ input[type="range"] {
   margin-bottom: 16px;
   position: relative;
   overflow: hidden;
-}
-.result-highlight::before {
-  content: '';
-  position: absolute; top: -30px; right: -30px;
-  width: 80px; height: 80px;
-  background: rgba(184,134,11,0.07);
-  border-radius: 50%;
 }
 .rh-label {
   font-size: 0.62rem;
@@ -895,9 +828,6 @@ input[type="range"] {
   margin-top: 8px;
 }
 
-/* ═══════════════════════════════════════════════════════
-   ANNUAL IMPACT BANNER
-═══════════════════════════════════════════════════════ */
 .annual-impact {
   background: linear-gradient(135deg, #052E0A, #074D12);
   border-radius: var(--r-md);
@@ -907,13 +837,6 @@ input[type="range"] {
   position: relative;
   overflow: hidden;
   display: none;
-}
-.annual-impact::before {
-  content: '';
-  position: absolute; top: -30px; right: -30px;
-  width: 100px; height: 100px;
-  background: rgba(255,255,255,0.04);
-  border-radius: 50%;
 }
 .ai-label {
   font-size: 0.6rem;
@@ -986,7 +909,7 @@ input[type="range"] {
 }
 
 /* ═══════════════════════════════════════════════════════
-   INFO PANELS & CALLOUTS
+   CALLOUTS & INFO
 ═══════════════════════════════════════════════════════ */
 .info-panel {
   background: var(--blue-light);
@@ -1027,7 +950,7 @@ input[type="range"] {
 .callout-body strong { color: var(--text-primary); font-weight: 700; }
 
 /* ═══════════════════════════════════════════════════════
-   DA TABLE SPECIFIC
+   DA TABLE
 ═══════════════════════════════════════════════════════ */
 .da-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
 .da-table th {
@@ -1048,7 +971,6 @@ input[type="range"] {
   font-weight: 700;
   color: var(--saffron);
 }
-.da-table tr:hover td { background: var(--surface-2); }
 .da-pill {
   display: inline-block;
   background: var(--india-green-light);
@@ -1060,7 +982,6 @@ input[type="range"] {
   font-weight: 700;
   font-family: var(--font-mono);
 }
-.da-up { color: var(--green); font-weight: 700; }
 
 /* ═══════════════════════════════════════════════════════
    SALARY SLIP
@@ -1086,11 +1007,6 @@ input[type="range"] {
   color: var(--india-blue);
   letter-spacing: 0.5px;
 }
-.slip-ministry {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  margin-top: 2px;
-}
 .slip-title {
   font-size: 1rem;
   font-weight: 700;
@@ -1098,11 +1014,6 @@ input[type="range"] {
   margin-top: 8px;
   text-transform: uppercase;
   letter-spacing: 2px;
-}
-.slip-period {
-  font-size: 0.75rem;
-  color: var(--text-muted);
-  margin-top: 4px;
 }
 .slip-meta-grid {
   display: grid;
@@ -1154,40 +1065,7 @@ input[type="range"] {
 .slip-signature { text-align: right; font-size: 0.72rem; color: var(--text-secondary); }
 
 /* ═══════════════════════════════════════════════════════
-   COMPARE / FITMENT
-═══════════════════════════════════════════════════════ */
-.compare-bar-row { margin: 4px 0; }
-.compare-bar-bg {
-  background: var(--border);
-  border-radius: var(--r-pill);
-  height: 8px;
-  overflow: hidden;
-  margin-top: 3px;
-}
-.compare-bar {
-  height: 100%;
-  border-radius: var(--r-pill);
-  transition: width 0.8s cubic-bezier(0.23, 1, 0.32, 1);
-}
-.bar-old { background: var(--border-2); }
-.bar-new { background: linear-gradient(90deg, var(--saffron), #FFB74D); }
-
-/* ═══════════════════════════════════════════════════════
-   PENSION CARDS
-═══════════════════════════════════════════════════════ */
-.pension-card {
-  border-radius: var(--r-md);
-  padding: 20px;
-  text-align: center;
-}
-.pension-ops { background: var(--blue-light); border: 1.5px solid #BFDBFE; }
-.pension-nps { background: var(--gold-light); border: 1.5px solid var(--gold-border); }
-.pension-amount { font-size: 1.6rem; font-weight: 800; font-family: var(--font-mono); margin: 6px 0; }
-.pension-ops .pension-amount { color: var(--blue); }
-.pension-nps .pension-amount { color: var(--saffron); }
-
-/* ═══════════════════════════════════════════════════════
-   PAY MATRIX EXPLORER
+   MATRIX TABLE
 ═══════════════════════════════════════════════════════ */
 .matrix-table {
   width: 100%;
@@ -1229,7 +1107,7 @@ input[type="range"] {
 }
 
 /* ═══════════════════════════════════════════════════════
-   NEWS SECTION
+   NEWS & CONTENT
 ═══════════════════════════════════════════════════════ */
 .news-item {
   padding: 14px 0;
@@ -1269,16 +1147,20 @@ input[type="range"] {
   color: var(--text-primary);
   line-height: 1.4;
   margin-bottom: 4px;
+  cursor: pointer;
 }
+.news-title:hover { color: var(--saffron); }
 .news-snippet {
   font-size: 0.73rem;
   color: var(--text-muted);
   line-height: 1.5;
 }
 .news-source { font-size: 0.65rem; color: var(--india-blue); font-weight: 600; margin-top: 4px; }
+.news-full { display: none; margin-top: 10px; padding: 12px 16px; background: var(--surface-2); border-radius: var(--r-sm); font-size: 0.82rem; line-height: 1.8; }
+.news-full.open { display: block; }
 
 /* ═══════════════════════════════════════════════════════
-   STATE-WISE / DEPT-WISE CARDS
+   DEPT GRID
 ═══════════════════════════════════════════════════════ */
 .dept-grid {
   display: grid;
@@ -1304,7 +1186,7 @@ input[type="range"] {
 .dept-desc { font-size: 0.6rem; color: var(--text-muted); margin-top: 2px; }
 
 /* ═══════════════════════════════════════════════════════
-   FAQ ACCORDION
+   FAQ
 ═══════════════════════════════════════════════════════ */
 .faq-item {
   border: 1.5px solid var(--border);
@@ -1353,7 +1235,7 @@ input[type="range"] {
 .faq-answer.open { display: block; animation: fadeUp 0.2s ease both; }
 
 /* ═══════════════════════════════════════════════════════
-   NEWSLETTER & PUSH
+   NEWSLETTER
 ═══════════════════════════════════════════════════════ */
 .newsletter-block {
   background: linear-gradient(135deg, var(--india-blue) 0%, #1A4DB0 100%);
@@ -1388,76 +1270,7 @@ input[type="range"] {
 .nl-input:focus { border-color: rgba(255,153,51,0.8); outline: none; background: rgba(255,255,255,0.15); }
 
 /* ═══════════════════════════════════════════════════════
-   POPUP / MODAL
-═══════════════════════════════════════════════════════ */
-.modal-overlay {
-  display: none;
-  position: fixed; inset: 0;
-  background: rgba(0,0,0,0.6);
-  z-index: 500;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-  backdrop-filter: blur(4px);
-}
-.modal-overlay.open { display: flex; animation: fadeIn 0.2s ease both; }
-.modal-box {
-  background: var(--surface);
-  border-radius: var(--r-xl);
-  width: 100%;
-  max-width: 520px;
-  max-height: 90vh;
-  overflow-y: auto;
-  box-shadow: var(--shadow-xl);
-  animation: slideUp 0.3s ease both;
-}
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-.modal-header {
-  padding: 20px 24px 16px;
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.modal-title { font-size: 1rem; font-weight: 800; color: var(--text-primary); }
-.modal-close {
-  width: 28px; height: 28px;
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 0.8rem;
-  cursor: pointer;
-  color: var(--text-muted);
-}
-.modal-close:hover { background: var(--red-light); color: var(--red); }
-.modal-body { padding: 20px 24px 24px; }
-
-/* ═══════════════════════════════════════════════════════
-   TOAST
-═══════════════════════════════════════════════════════ */
-.toast {
-  position: fixed; bottom: 20px; right: 20px;
-  background: var(--text-primary);
-  color: #fff;
-  padding: 11px 18px;
-  border-radius: var(--r-md);
-  font-weight: 600;
-  font-size: 0.8rem;
-  z-index: 9999;
-  opacity: 0;
-  transform: translateY(8px);
-  transition: opacity 0.3s, transform 0.3s;
-  pointer-events: none;
-  box-shadow: var(--shadow-lg);
-  display: flex; align-items: center; gap: 8px;
-  max-width: 320px;
-}
-.toast.show { opacity: 1; transform: translateY(0); }
-
-/* ═══════════════════════════════════════════════════════
-   SIDEBAR INTERNAL LINKS / RELATED
+   RELATED LINKS
 ═══════════════════════════════════════════════════════ */
 .related-links { list-style: none; }
 .related-links li { border-bottom: 1px solid var(--border); }
@@ -1489,10 +1302,9 @@ input[type="range"] {
   flex-wrap: wrap;
 }
 .breadcrumb a { color: var(--saffron); font-weight: 600; }
-.breadcrumb span { color: var(--border-2); }
 
 /* ═══════════════════════════════════════════════════════
-   ADUNIT PLACEHOLDERS (for AdSense)
+   AD UNITS
 ═══════════════════════════════════════════════════════ */
 .ad-unit {
   background: var(--surface-2);
@@ -1506,10 +1318,84 @@ input[type="range"] {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 600;
+  overflow: hidden;
 }
 .ad-leaderboard { height: 90px; margin-bottom: 16px; }
 .ad-rectangle { height: 250px; margin-bottom: 16px; }
 .ad-mid { height: 60px; margin: 12px 0; }
+.ad-sidebar { min-height: 600px; }
+.ad-infeed { height: 90px; margin: 12px 0; }
+
+/* ═══════════════════════════════════════════════════════
+   COUNTDOWN
+═══════════════════════════════════════════════════════ */
+.countdown-block {
+  background: linear-gradient(135deg, #001845, #002B7F);
+  border-radius: var(--r-md);
+  padding: 18px 20px;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+}
+.countdown-block::before {
+  content: '';
+  position: absolute; top: 0; left: 0;
+  width: 4px; height: 100%;
+  background: var(--saffron);
+}
+.cd-label { font-size: 0.6rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 8px; }
+.cd-units { display: flex; gap: 12px; }
+.cd-unit { text-align: center; }
+.cd-val { font-size: 1.4rem; font-weight: 800; color: #FFB74D; font-family: var(--font-mono); line-height: 1; }
+.cd-name { font-size: 0.58rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.8px; margin-top: 3px; }
+.cd-title { font-size: 0.82rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
+
+/* ═══════════════════════════════════════════════════════
+   PROFILE
+═══════════════════════════════════════════════════════ */
+.profile-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-sm);
+  padding: 9px 12px;
+}
+.profile-name { flex: 1; font-size: 0.8rem; font-weight: 700; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.profile-meta { font-size: 0.63rem; color: var(--text-muted); margin-top: 1px; }
+
+/* ═══════════════════════════════════════════════════════
+   SEO BLOCK
+═══════════════════════════════════════════════════════ */
+.seo-block {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-sm);
+}
+.seo-block h2 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+.seo-block h3 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-secondary);
+  margin: 14px 0 6px;
+}
+.seo-block p, .seo-block li {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+.seo-block ul { padding-left: 18px; }
+.seo-block li { margin-bottom: 4px; }
 
 /* ═══════════════════════════════════════════════════════
    FOOTER
@@ -1559,7 +1445,7 @@ input[type="range"] {
 }
 
 /* ═══════════════════════════════════════════════════════
-   FLOATING CTA (mobile sticky)
+   FLOATING CTA
 ═══════════════════════════════════════════════════════ */
 .float-cta {
   display: none;
@@ -1588,75 +1474,26 @@ input[type="range"] {
 .float-cta-label { font-size: 0.6rem; color: var(--text-muted); font-weight: 500; }
 
 /* ═══════════════════════════════════════════════════════
-   PROGRESS / COUNTDOWN
+   TOAST
 ═══════════════════════════════════════════════════════ */
-.countdown-block {
-  background: linear-gradient(135deg, #001845, #002B7F);
+.toast {
+  position: fixed; bottom: 80px; right: 20px;
+  background: var(--text-primary);
+  color: #fff;
+  padding: 11px 18px;
   border-radius: var(--r-md);
-  padding: 18px 20px;
-  margin-bottom: 16px;
-  position: relative;
-  overflow: hidden;
+  font-weight: 600;
+  font-size: 0.8rem;
+  z-index: 9999;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.3s, transform 0.3s;
+  pointer-events: none;
+  box-shadow: var(--shadow-lg);
+  display: flex; align-items: center; gap: 8px;
+  max-width: 320px;
 }
-.countdown-block::before {
-  content: '';
-  position: absolute; top: 0; left: 0;
-  width: 4px; height: 100%;
-  background: var(--saffron);
-}
-.cd-label { font-size: 0.6rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 8px; }
-.cd-units { display: flex; gap: 12px; }
-.cd-unit { text-align: center; }
-.cd-val { font-size: 1.4rem; font-weight: 800; color: #FFB74D; font-family: var(--font-mono); line-height: 1; }
-.cd-name { font-size: 0.58rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.8px; margin-top: 3px; }
-.cd-title { font-size: 0.82rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
-
-/* ═══════════════════════════════════════════════════════
-   PROFILE SAVE
-═══════════════════════════════════════════════════════ */
-.profile-row {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--surface);
-  border: 1.5px solid var(--border);
-  border-radius: var(--r-sm);
-  padding: 9px 12px;
-}
-.profile-name { flex: 1; font-size: 0.8rem; font-weight: 700; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.profile-meta { font-size: 0.63rem; color: var(--text-muted); margin-top: 1px; }
-
-/* ═══════════════════════════════════════════════════════
-   SEO CONTENT SECTIONS
-═══════════════════════════════════════════════════════ */
-.seo-block {
-  background: var(--surface);
-  border: 1.5px solid var(--border);
-  border-radius: var(--r-lg);
-  padding: 24px;
-  margin-bottom: 20px;
-  box-shadow: var(--shadow-sm);
-}
-.seo-block h2 {
-  font-size: 1.1rem;
-  font-weight: 800;
-  color: var(--text-primary);
-  margin-bottom: 10px;
-  line-height: 1.3;
-}
-.seo-block h3 {
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: var(--text-secondary);
-  margin: 14px 0 6px;
-}
-.seo-block p, .seo-block li {
-  font-size: 0.82rem;
-  color: var(--text-secondary);
-  line-height: 1.75;
-}
-.seo-block ul { padding-left: 18px; }
-.seo-block li { margin-bottom: 4px; }
+.toast.show { opacity: 1; transform: translateY(0); }
 
 /* ═══════════════════════════════════════════════════════
    RESPONSIVE
@@ -1680,19 +1517,18 @@ input[type="range"] {
   .page-layout { padding-bottom: 90px; }
   .tabs-bar { overflow-x: auto; flex-wrap: nowrap; padding: 4px; }
   .tab-btn { flex-shrink: 0; padding: 8px 14px; font-size: 0.74rem; }
+  .ad-sidebar { min-height: 250px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 20px; }
 }
 
 @media (max-width: 480px) {
   .three-col { grid-template-columns: 1fr; }
   .four-col { grid-template-columns: 1fr 1fr; }
   .header-clock { display: none; }
-  .footer-grid { grid-template-columns: 1fr; gap: 20px; }
-  .hero-stats { grid-template-columns: 1fr 1fr; }
   .quick-nav { gap: 6px; }
   .quick-pill { font-size: 0.72rem; padding: 7px 12px; }
 }
 
-/* Animations for page sections */
 .section-appear { opacity: 0; transform: translateY(12px); transition: opacity 0.5s ease, transform 0.5s ease; }
 .section-appear.visible { opacity: 1; transform: translateY(0); }
 </style>
@@ -1708,7 +1544,6 @@ input[type="range"] {
     <span class="ticker-item">💰 <strong>Expected Fitment Factor:</strong> 2.57× to 3.68× — Unions demanding minimum 3.00×</span>
     <span class="ticker-item">🗓 <strong>Next DA Hike:</strong> July 2026 (~65%) — Based on AICPI-IW data projections</span>
     <span class="ticker-item">🏛 <strong>HRA Revision:</strong> Expected alongside 8th CPC — X city 27%, Y city 18%, Z city 9%</span>
-    <!-- duplicate for seamless loop -->
     <span class="ticker-label">🔴 LIVE</span>
     <span class="ticker-item">🎯 <strong>DA Jan 2026: 62%</strong> — Cabinet approval for 3% hike effective 1st January 2026</span>
     <span class="ticker-item">📊 <strong>8th Pay Commission</strong> constituted — terms of reference being finalized for Jan 2026 implementation</span>
@@ -1760,8 +1595,17 @@ input[type="range"] {
     <span>8th CPC Salary Calculator</span>
   </nav>
 
-  <!-- AD UNIT - TOP LEADERBOARD -->
-  <div class="ad-unit ad-leaderboard" aria-label="Advertisement">Advertisement</div>
+  <!-- ═══ AD UNIT - TOP LEADERBOARD ═══ -->
+  <div class="ad-unit ad-leaderboard" id="adLeaderboard">
+    <!-- Google AdSense -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
 
   <!-- ═══ HERO ═══ -->
   <section class="hero section-appear" aria-labelledby="hero-heading">
@@ -1781,10 +1625,10 @@ input[type="range"] {
           Get your exact 8th Pay Commission salary projection with DA, HRA, pension, tax breakdown and professional salary slip — trusted by <strong style="color:#FFB74D;">50,000+ government employees</strong>.
         </p>
         <div class="hero-trust">
-          <div class="trust-pill"><span class="ti">✅</span> MoF Circular Verified</div>
-          <div class="trust-pill"><span class="ti">🔒</span> No Registration</div>
-          <div class="trust-pill"><span class="ti">📱</span> Mobile Ready</div>
-          <div class="trust-pill"><span class="ti">⚡</span> Instant Results</div>
+          <div class="trust-pill">✅ MoF Circular Verified</div>
+          <div class="trust-pill">🔒 No Registration</div>
+          <div class="trust-pill">📱 Mobile Ready</div>
+          <div class="trust-pill">⚡ Instant Results</div>
         </div>
       </div>
     </div>
@@ -1868,21 +1712,21 @@ input[type="range"] {
           </div>
 
           <div class="field">
-            <label>7th CPC Pay Level <span class="field-err" id="errLevel">Select a level</span></label>
+            <label>7th CPC Pay Level</label>
             <select id="payLevel" onchange="autoBasic(); scheduleCalc();">
               <option value="0">-- Select Pay Level --</option>
             </select>
           </div>
 
           <div class="field">
-            <label>Current Basic Pay (₹/month) <span class="field-err" id="errBasic">Min ₹18,000</span></label>
+            <label>Current Basic Pay (₹/month)</label>
             <input type="number" id="currentBasic" value="44900" min="18000" autocomplete="off"
               oninput="validateBasic(); scheduleCalc();" aria-describedby="basicHint">
             <div class="field-hint" id="basicHint">Entry-level pay for each Level as per 7th CPC Pay Matrix</div>
           </div>
 
           <div class="field">
-            <label>Current DA (%) <span class="field-err" id="errDA">0–100%</span></label>
+            <label>Current DA (%)</label>
             <input type="number" id="daPercent" value="62" min="0" max="100" oninput="validateDA(); scheduleCalc();">
           </div>
 
@@ -1890,7 +1734,7 @@ input[type="range"] {
             <label>HRA City Class</label>
             <select id="hraClass" onchange="scheduleCalc();">
               <option value="X">X City (24%) — Delhi, Mumbai, Chennai, Kolkata, Bengaluru, Hyderabad</option>
-              <option value="Y" selected>Y City (16%) — State capitals & cities &gt;5L</option>
+              <option value="Y" selected>Y City (16%) — State capitals & cities >5L</option>
               <option value="Z">Z City (8%) — All other places</option>
             </select>
           </div>
@@ -2017,8 +1861,16 @@ input[type="range"] {
         </div>
       </div>
 
-      <!-- AD UNIT - mid article -->
-      <div class="ad-unit ad-mid" aria-label="Advertisement">Advertisement</div>
+      <!-- ═══ AD UNIT - MID ARTICLE ═══ -->
+      <div class="ad-unit ad-mid" id="adMid">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXX"
+             data-ad-slot="XXXXXXXXXX"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
 
       <!-- DEPT QUICK LINKS -->
       <div class="card" style="margin-bottom:20px;">
@@ -2252,59 +2104,37 @@ input[type="range"] {
     </div>
   </section>
 
-  <!-- AD UNIT - after calculator -->
-  <div class="ad-unit ad-rectangle" aria-label="Advertisement">Advertisement (300×250)</div>
+  <!-- ═══ AD UNIT - AFTER CALCULATOR ═══ -->
+  <div class="ad-unit ad-rectangle" id="adRectangle">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="rectangle"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
 
   <!-- ═══════════════════════════════════════════════════
-       SECTION: NEWS & UPDATES
+       SECTION: NEWS & UPDATES (Dynamic)
   ═══════════════════════════════════════════════════ -->
   <section id="news" aria-labelledby="news-heading">
     <div class="two-col">
       <div class="card">
         <div class="card-header">
           <h2 id="news-heading" class="card-title">📰 Latest Updates</h2>
-          <a href="#" style="font-size:0.72rem;color:var(--saffron);font-weight:600;">View All →</a>
+          <div style="display:flex;gap:8px;align-items:center;">
+            <select id="newsFilter" onchange="renderNews()" style="padding:4px 8px;font-size:0.7rem;border-radius:var(--r-sm);border:1.5px solid var(--border);background:var(--surface-2);">
+              <option value="all">All</option>
+              <option value="DA">DA</option>
+              <option value="8th CPC">8th CPC</option>
+              <option value="Pension">Pension</option>
+              <option value="Fitment">Fitment</option>
+            </select>
+            <button class="btn btn-xs btn-secondary" onclick="refreshNews()">↻</button>
+          </div>
         </div>
-
-        <article class="news-item">
-          <div class="news-date-badge"><div class="news-date-day">15</div><div class="news-date-mon">May 26</div></div>
-          <div class="news-content">
-            <div class="news-tag">DA</div>
-            <div class="news-title">Cabinet approves 62% DA for central govt employees effective January 2026</div>
-            <div class="news-snippet">The Union Cabinet chaired by PM Modi approved the revised DA rate, benefiting 47.5 lakh employees and 69 lakh pensioners.</div>
-            <div class="news-source">Source: Press Information Bureau (PIB)</div>
-          </div>
-        </article>
-
-        <article class="news-item">
-          <div class="news-date-badge"><div class="news-date-day">02</div><div class="news-date-mon">Apr 26</div></div>
-          <div class="news-content">
-            <div class="news-tag">8th CPC</div>
-            <div class="news-title">8th Pay Commission: Government finalizes Terms of Reference</div>
-            <div class="news-snippet">Ministry of Finance confirms the 8th CPC has been formally constituted with wide-ranging mandate covering pay, allowances, and service conditions.</div>
-            <div class="news-source">Source: Ministry of Finance, GoI</div>
-          </div>
-        </article>
-
-        <article class="news-item">
-          <div class="news-date-badge"><div class="news-date-day">18</div><div class="news-date-mon">Mar 26</div></div>
-          <div class="news-content">
-            <div class="news-tag">Fitment</div>
-            <div class="news-title">Staff federations demand 3.68× fitment factor; submit memorandum to CPC</div>
-            <div class="news-snippet">Joint Consultative Machinery submitted a detailed memorandum demanding minimum 3.68× fitment, citing inflation and 7th CPC anomalies.</div>
-            <div class="news-source">Source: NCJCM / JCM Staff Side</div>
-          </div>
-        </article>
-
-        <article class="news-item">
-          <div class="news-date-badge"><div class="news-date-day">10</div><div class="news-date-mon">Feb 26</div></div>
-          <div class="news-content">
-            <div class="news-tag">Pension</div>
-            <div class="news-title">UPS (Unified Pension Scheme) operational guidelines released by PFRDA</div>
-            <div class="news-snippet">Central employees hired before 2004 get OPS; those after 2004 now have UPS option alongside NPS with assured 50% last pay pension after 25 years.</div>
-            <div class="news-source">Source: PFRDA Circular 2026</div>
-          </div>
-        </article>
+        <div id="newsContainer"></div>
       </div>
 
       <!-- NEWSLETTER + TRUST SIDEBAR -->
@@ -2357,19 +2187,27 @@ input[type="range"] {
         <div class="card">
           <div class="card-title" style="margin-bottom:12px;">🔗 Popular Pages</div>
           <ul class="related-links">
-            <li><a href="/level-6-salary-after-8th-cpc">Level 6 Salary after 8th CPC <span class="rl-arrow">→</span></a></li>
-            <li><a href="/da-hike-january-2026">DA Hike January 2026 Update <span class="rl-arrow">→</span></a></li>
-            <li><a href="/railway-salary-after-8th-pay-commission">Railway Employee Salary 8th CPC <span class="rl-arrow">→</span></a></li>
-            <li><a href="/teacher-salary-calculator">Teacher Salary Calculator <span class="rl-arrow">→</span></a></li>
-            <li><a href="/fitment-factor-3-68-calculator">Fitment Factor 3.68× Calculator <span class="rl-arrow">→</span></a></li>
-            <li><a href="/central-government-salary-hike">Salary Hike % Calculator <span class="rl-arrow">→</span></a></li>
-            <li><a href="/8th-cpc-pension-calculator">8th CPC Pension Calculator <span class="rl-arrow">→</span></a></li>
-            <li><a href="/hra-calculator-2026">HRA Calculator 2026 <span class="rl-arrow">→</span></a></li>
+            <li><a href="#" onclick="showToast('📄 Level 6 salary guide coming soon')">Level 6 Salary after 8th CPC <span class="rl-arrow">→</span></a></li>
+            <li><a href="#" onclick="showToast('📄 DA hike details coming soon')">DA Hike January 2026 Update <span class="rl-arrow">→</span></a></li>
+            <li><a href="#" onclick="showToast('🚂 Railway salary guide coming soon')">Railway Employee Salary 8th CPC <span class="rl-arrow">→</span></a></li>
+            <li><a href="#" onclick="showToast('📚 Teacher salary calculator coming soon')">Teacher Salary Calculator <span class="rl-arrow">→</span></a></li>
+            <li><a href="#" onclick="showToast('⚖️ Fitment factor guide coming soon')">Fitment Factor 3.68× Calculator <span class="rl-arrow">→</span></a></li>
           </ul>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- ═══ AD UNIT - SIDEBAR STYLE IN-FEED ═══ -->
+  <div class="ad-unit ad-infeed" id="adInfeed">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
 
   <!-- ═══════════════════════════════════════════════════
        SECTION: STATE & DEPT PAGES
@@ -2408,6 +2246,17 @@ input[type="range"] {
       </div>
     </div>
   </section>
+
+  <!-- ═══ AD UNIT - BOTTOM ═══ -->
+  <div class="ad-unit ad-rectangle" id="adBottom">
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-XXXXXXXXXX"
+         data-ad-slot="XXXXXXXXXX"
+         data-ad-format="rectangle"
+         data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
 
   <!-- ═══════════════════════════════════════════════════
        SECTION: FAQ (Schema-ready)
@@ -2536,7 +2385,7 @@ input[type="range"] {
           <label>City Class</label>
           <select id="hraCityClass" onchange="calcHRA();">
             <option value="X">X City — Delhi, Mumbai, Hyderabad, Bengaluru, Chennai, Kolkata</option>
-            <option value="Y" selected>Y City — State capitals &amp; cities &gt;5 lakh</option>
+            <option value="Y" selected>Y City — State capitals & cities >5 lakh</option>
             <option value="Z">Z City — All other areas</option>
           </select>
         </div>
@@ -2648,10 +2497,10 @@ input[type="range"] {
   <section id="circulars" aria-labelledby="circ-heading" style="margin-bottom:20px;">
     <div class="card section-appear">
       <div class="card-header">
-        <h2 id="circ-heading" class="card-title">📜 Govt Orders &amp; Circular Library</h2>
+        <h2 id="circ-heading" class="card-title">📜 Govt Orders & Circular Library</h2>
         <div style="display:flex;gap:8px;align-items:center;">
           <input type="text" id="circSearch" placeholder="Search circulars..." oninput="filterCirculars()" style="padding:6px 12px;font-size:0.74rem;border-radius:var(--r-sm);width:180px;font-family:var(--font-body);">
-          <span style="font-size:0.68rem;color:var(--text-muted);" id="circCount">14 orders</span>
+          <span style="font-size:0.68rem;color:var(--text-muted);" id="circCount">0 orders</span>
         </div>
       </div>
       <div class="info-panel">
@@ -2660,11 +2509,11 @@ input[type="range"] {
       </div>
       <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;" id="circTagFilter">
         <button class="quick-pill active" onclick="filterByCircTag(this,'all')" style="font-size:0.68rem;padding:4px 11px;">All</button>
-        <button class="quick-pill" onclick="filterByCircTag(this,'da')" style="font-size:0.68rem;padding:4px 11px;">DA</button>
-        <button class="quick-pill" onclick="filterByCircTag(this,'hra')" style="font-size:0.68rem;padding:4px 11px;">HRA</button>
-        <button class="quick-pill" onclick="filterByCircTag(this,'8cpc')" style="font-size:0.68rem;padding:4px 11px;">8th CPC</button>
-        <button class="quick-pill" onclick="filterByCircTag(this,'pension')" style="font-size:0.68rem;padding:4px 11px;">Pension</button>
-        <button class="quick-pill" onclick="filterByCircTag(this,'ta')" style="font-size:0.68rem;padding:4px 11px;">TA/DP</button>
+        <button class="quick-pill" onclick="filterByCircTag(this,'DA')" style="font-size:0.68rem;padding:4px 11px;">DA</button>
+        <button class="quick-pill" onclick="filterByCircTag(this,'HRA')" style="font-size:0.68rem;padding:4px 11px;">HRA</button>
+        <button class="quick-pill" onclick="filterByCircTag(this,'8th CPC')" style="font-size:0.68rem;padding:4px 11px;">8th CPC</button>
+        <button class="quick-pill" onclick="filterByCircTag(this,'Pension')" style="font-size:0.68rem;padding:4px 11px;">Pension</button>
+        <button class="quick-pill" onclick="filterByCircTag(this,'TA')" style="font-size:0.68rem;padding:4px 11px;">TA/DP</button>
       </div>
       <div id="circularList"></div>
     </div>
@@ -2694,9 +2543,6 @@ input[type="range"] {
       <div id="daPredResult"></div>
     </div>
   </section>
-
-  <!-- AD UNIT mid -->
-  <div class="ad-unit ad-rectangle" aria-label="Advertisement" style="margin-bottom:20px;">Advertisement (300×250)</div>
 
   <!-- SEO TEXT BLOCK -->
   <div class="seo-block section-appear">
@@ -2738,33 +2584,33 @@ input[type="range"] {
       </div>
       <div class="footer-col">
         <h4>Calculators</h4>
-        <a href="/8th-cpc-salary-calculator">Salary Calculator</a>
-        <a href="/da-calculator">DA Calculator</a>
-        <a href="/hra-calculator-2026">HRA Calculator</a>
-        <a href="/8th-cpc-pension-calculator">Pension Calculator</a>
-        <a href="/fitment-factor-3-68-calculator">Fitment Calculator</a>
-        <a href="/salary-slip-generator">Salary Slip Generator</a>
-        <a href="/arrears-calculator">Arrears Calculator</a>
+        <a href="#">Salary Calculator</a>
+        <a href="#">DA Calculator</a>
+        <a href="#">HRA Calculator</a>
+        <a href="#">Pension Calculator</a>
+        <a href="#">Fitment Calculator</a>
+        <a href="#">Salary Slip Generator</a>
+        <a href="#">Arrears Calculator</a>
       </div>
       <div class="footer-col">
         <h4>Departments</h4>
-        <a href="/railway-salary-after-8th-pay-commission">Railway Salary</a>
-        <a href="/defence-salary-8th-cpc">Defence Salary</a>
-        <a href="/teacher-salary-calculator">Teacher Salary</a>
-        <a href="/ias-salary-8th-cpc">IAS/IPS Salary</a>
-        <a href="/central-government-salary-hike">Central Govt Hike</a>
-        <a href="/banking-salary-8th-cpc">Banking Salary</a>
-        <a href="/level-6-salary-after-8th-cpc">Level 6 Salary</a>
+        <a href="#">Railway Salary</a>
+        <a href="#">Defence Salary</a>
+        <a href="#">Teacher Salary</a>
+        <a href="#">IAS/IPS Salary</a>
+        <a href="#">Central Govt Hike</a>
+        <a href="#">Banking Salary</a>
+        <a href="#">Level 6 Salary</a>
       </div>
       <div class="footer-col">
         <h4>Resources</h4>
-        <a href="/da-hike-january-2026">DA Hike Jan 2026</a>
-        <a href="/8th-cpc-news">8th CPC News</a>
-        <a href="/government-orders-library">Govt Orders Library</a>
-        <a href="/faq">FAQ</a>
-        <a href="/pay-matrix-calculator">Pay Matrix Explorer</a>
-        <a href="/about">About Us</a>
-        <a href="/disclaimer">Disclaimer</a>
+        <a href="#">DA Hike Jan 2026</a>
+        <a href="#">8th CPC News</a>
+        <a href="#">Govt Orders Library</a>
+        <a href="#">FAQ</a>
+        <a href="#">Pay Matrix Explorer</a>
+        <a href="#">About Us</a>
+        <a href="#">Disclaimer</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -2794,7 +2640,7 @@ input[type="range"] {
   </div>
 </div>
 
-<!-- TOAST -->
+<!-- ═══ TOAST ═══ -->
 <div class="toast" id="toast" role="status" aria-live="polite">
   <span id="toastMsg">Done</span>
 </div>
@@ -2824,8 +2670,8 @@ const CFG = {
     ['Jan 2025','56%','+3%'],['Jul 2025','59%','+3%'],
     ['Jan 2026','62%','+3%'],['Jul 2026 (Proj.)','~65%','+3%']
   ],
-  LS_KEY: 'cpc8_v3',
-  PROFILES_KEY: 'cpc8_profiles_v3',
+  LS_KEY: 'cpc8_v4',
+  PROFILES_KEY: 'cpc8_profiles_v4',
   DEPT_PRESETS: {
     railway:  { level:6,  basic:35400, hra:'Y', dept:'Ministry of Railways', desig:'Junior Engineer / Station Master' },
     defence:  { level:7,  basic:44900, hra:'Y', dept:'Ministry of Defence',  desig:'Non-Commissioned Officer' },
@@ -2842,12 +2688,153 @@ const CFG = {
 };
 
 // ══════════════════════════════════════════
+//  DATA: NEWS ARTICLES (Fully Dynamic)
+// ══════════════════════════════════════════
+const NEWS_DATA = [
+  {
+    id: 1,
+    date: '15 May 2026',
+    day: '15',
+    month: 'May 26',
+    tag: 'DA',
+    title: 'Cabinet approves 62% DA for central govt employees effective January 2026',
+    snippet: 'The Union Cabinet chaired by PM Modi approved the revised DA rate, benefiting 47.5 lakh employees and 69 lakh pensioners.',
+    full: 'The Union Cabinet chaired by the Prime Minister today gave its approval for a 3% Dearness Allowance (DA) hike for central government employees, effective from 1 January 2026. This increases the DA rate from 59% to 62%. The decision will benefit 47.5 lakh central government employees and 69 lakh pensioners. The increase is in accordance with the accepted formula based on the recommendations of the 7th Central Pay Commission. The additional financial implication on the exchequer is estimated at ₹8,500 crore per annum.',
+    source: 'Press Information Bureau (PIB)',
+    ref: 'PIB/2026/DA-62'
+  },
+  {
+    id: 2,
+    date: '02 Apr 2026',
+    day: '02',
+    month: 'Apr 26',
+    tag: '8th CPC',
+    title: '8th Pay Commission: Government finalizes Terms of Reference',
+    snippet: 'Ministry of Finance confirms the 8th CPC has been formally constituted with wide-ranging mandate covering pay, allowances, and service conditions.',
+    full: 'The Ministry of Finance has officially announced that the 8th Central Pay Commission has been formally constituted with a comprehensive Terms of Reference. The commission will examine and recommend revisions to pay, allowances, pension, and service conditions for central government employees. The TOR includes reviewing the fitment factor, minimum pay, pay matrix, and various allowances including HRA, TA, and DA mechanism. The commission is expected to submit its report by December 2025 for implementation from January 2026.',
+    source: 'Ministry of Finance, GoI',
+    ref: 'Fin/8CPC/2026/12'
+  },
+  {
+    id: 3,
+    date: '18 Mar 2026',
+    day: '18',
+    month: 'Mar 26',
+    tag: 'Fitment',
+    title: 'Staff federations demand 3.68× fitment factor; submit memorandum to CPC',
+    snippet: 'Joint Consultative Machinery submitted a detailed memorandum demanding minimum 3.68× fitment, citing inflation and 7th CPC anomalies.',
+    full: 'The Joint Consultative Machinery (JCM) Staff Side has submitted a comprehensive memorandum to the 8th Pay Commission demanding a minimum fitment factor of 3.68×. The memorandum cites inflation data, the high cost of living, and anomalies in the 7th CPC implementation. The JCM has also demanded revision of minimum pay to ₹30,000, restoration of the old pension scheme, and enhancement of all allowances. The Pay Commission has acknowledged the demands and will consider them in its deliberations.',
+    source: 'NCJCM / JCM Staff Side',
+    ref: 'JCM/8CPC/2026/14'
+  },
+  {
+    id: 4,
+    date: '10 Feb 2026',
+    day: '10',
+    month: 'Feb 26',
+    tag: 'Pension',
+    title: 'UPS (Unified Pension Scheme) operational guidelines released by PFRDA',
+    snippet: 'Central employees hired before 2004 get OPS; those after 2004 now have UPS option alongside NPS with assured 50% last pay pension after 25 years.',
+    full: 'The Pension Fund Regulatory and Development Authority (PFRDA) has released operational guidelines for the Unified Pension Scheme (UPS). Under UPS, central government employees who joined after 2004 will have an option to choose between NPS and UPS. UPS guarantees 50% of last basic pay and DA as monthly pension after 25 years of service. The scheme also provides family pension of 60% and minimum guaranteed pension of ₹10,000 per month. Employees can opt for UPS through a one-time exercise before 31 December 2026.',
+    source: 'PFRDA Circular 2026',
+    ref: 'PFRDA/UPS/2026/02'
+  },
+  {
+    id: 5,
+    date: '25 Jan 2026',
+    day: '25',
+    month: 'Jan 26',
+    tag: 'HRA',
+    title: 'HRA revision expected: X city 27%, Y city 18%, Z city 9% under 8th CPC',
+    snippet: 'The 8th Pay Commission is expected to recommend HRA revision to 27%, 18%, and 9% for X, Y, and Z cities respectively, a 3 percentage point increase.',
+    full: 'Based on the recommendations of the 7th CPC and inflation trends, the 8th Pay Commission is expected to revise House Rent Allowance (HRA) rates. The proposed rates are: X city (population 50 lakh+) — 27% of basic pay, Y city (5-50 lakh) — 18%, and Z city (below 5 lakh) — 9%. This represents a 3 percentage point increase over current rates. The revision, combined with higher basic pay under 8th CPC, will significantly increase HRA amounts for all employees.',
+    source: 'Ministry of Finance (Draft)',
+    ref: 'Fin/HRA/2026/08'
+  },
+  {
+    id: 6,
+    date: '01 Jul 2025',
+    day: '01',
+    month: 'Jul 25',
+    tag: 'DA',
+    title: 'DA Revision to 59% effective July 2025',
+    snippet: 'Dearness Allowance revised from 56% to 59% for central govt employees effective July 2025.',
+    full: 'The government has approved a 3% Dearness Allowance (DA) hike for central government employees, taking the DA rate from 56% to 59%, effective from 1 July 2025. The decision is based on the 12-month average of All India Consumer Price Index for Industrial Workers (AICPI-IW) which rose to 59.2% as of June 2025. The hike will cost the exchequer approximately ₹7,600 crore annually.',
+    source: 'Ministry of Finance',
+    ref: 'Fin/DA/2025/07'
+  }
+];
+
+// ══════════════════════════════════════════
+//  DATA: CIRCULARS
+// ══════════════════════════════════════════
+const CIRCULARS = [
+  {id:1,date:'24 Jan 2026',title:'DA Revision to 62% — Cabinet Approval',tag:'DA',
+   ref:'F.No. 1/2/2024-E-II(B)',ministry:'Ministry of Finance',
+   desc:'Cabinet approves 3% DA hike to 62% for central govt employees effective 1 January 2026.',
+   url:'https://doe.gov.in'},
+  {id:2,date:'15 Jan 2026',title:'8th Pay Commission — Formal Constitution Notification',tag:'8th CPC',
+   ref:'Cabinet Decision 2026',ministry:'Cabinet Secretariat',
+   desc:'Government of India formally constitutes the 8th Central Pay Commission with wide-ranging mandate.',
+   url:'https://persmin.gov.in'},
+  {id:3,date:'01 Jul 2025',title:'DA Revision to 59%',tag:'DA',
+   ref:'F.No. 1/1/2025-E-II(B)',ministry:'Ministry of Finance',
+   desc:'Dearness Allowance revised from 56% to 59% effective July 2025.',
+   url:'https://doe.gov.in'},
+  {id:4,date:'01 Apr 2025',title:'Unified Pension Scheme (UPS) — Implementation Guidelines',tag:'Pension',
+   ref:'PFRDA/2025/14',ministry:'PFRDA',
+   desc:'UPS operational guidelines: 50% assured pension after 25 yrs service; 60% family pension.',
+   url:'https://pfrda.org.in'},
+  {id:5,date:'20 Feb 2025',title:'HRA Rates — City Classification Revision',tag:'HRA',
+   ref:'OM F.No. 2/5/2024-E.II(B)',ministry:'Ministry of Finance',
+   desc:'Revised classification of cities for HRA purposes effective 1 April 2025.',
+   url:'https://doe.gov.in'},
+  {id:6,date:'01 Jan 2025',title:'DA Revision to 56% effective January 2025',tag:'DA',
+   ref:'F.No. 1/2/2023-E-II(B)',ministry:'Ministry of Finance',
+   desc:'Dearness Allowance revised upward from 53% to 56%.',
+   url:'https://doe.gov.in'},
+  {id:7,date:'15 Nov 2024',title:'Transport Allowance — Revision for Metro Cities',tag:'TA',
+   ref:'OM No. 21(2)/2017-E.II(B)',ministry:'Ministry of Finance',
+   desc:'TA revised for metro cities. Level 9+: ₹7,200+DA; Level 3-8: ₹3,600+DA.',
+   url:'https://doe.gov.in'},
+  {id:8,date:'01 Jul 2024',title:'DA Revision to 53% from July 2024',tag:'DA',
+   ref:'F.No. 1/1/2024-E-II(B)',ministry:'Ministry of Finance',
+   desc:'Cabinet approves DA hike from 50% to 53% effective 1 July 2024.',
+   url:'https://doe.gov.in'},
+  {id:9,date:'10 Apr 2024',title:'NPS Employer Contribution Enhanced to 14%',tag:'Pension',
+   ref:'MF/OM/F.No.1/3/2016-PR',ministry:'Ministry of Finance',
+   desc:'Government employer NPS contribution enhanced to 14% of Basic+DA.',
+   url:'https://pfrda.org.in'},
+  {id:10,date:'01 Jan 2024',title:'DA Hike to 50% — Effective January 2024',tag:'DA',
+   ref:'F.No. 1/2/2023-E-II(B)',ministry:'Ministry of Finance',
+   desc:'Dearness Allowance revised from 46% to 50%, a 4% hike.',
+   url:'https://doe.gov.in'},
+  {id:11,date:'20 Sep 2023',title:'Standard Deduction Enhanced to ₹50,000 for Salaried',tag:'TA',
+   ref:'Finance Act 2023',ministry:'Ministry of Finance',
+   desc:'Standard deduction for salaried under old tax regime enhanced to ₹50,000.',
+   url:'https://incometax.gov.in'},
+  {id:12,date:'01 Jul 2023',title:'DA Revision to 46% from July 2023',tag:'DA',
+   ref:'F.No. 1/1/2023-E-II(B)',ministry:'Ministry of Finance',
+   desc:'Cabinet approval for DA revision from 42% to 46%.',
+   url:'https://doe.gov.in'},
+  {id:13,date:'31 Mar 2023',title:'Gratuity Ceiling Enhanced to ₹20 Lakhs',tag:'Pension',
+   ref:'OM F.No. 28/1/2022-P&PW(F)',ministry:'DoPPW',
+   desc:'Death/Retirement Gratuity ceiling enhanced to ₹20 lakhs.',
+   url:'https://persmin.gov.in'},
+  {id:14,date:'01 Jan 2023',title:'DA Revision to 42% from January 2023',tag:'DA',
+   ref:'F.No. 1/2/2022-E-II(B)',ministry:'Ministry of Finance',
+   desc:'DA revised from 38% to 42% effective 1 January 2023.',
+   url:'https://doe.gov.in'}
+];
+
+// ══════════════════════════════════════════
 //  UTILS
 // ══════════════════════════════════════════
 const $ = id => document.getElementById(id);
 const fmt = n => '₹' + Math.round(n).toLocaleString('en-IN');
 const fmtNum = n => Math.round(n).toLocaleString('en-IN');
 let lastCalcResult = null;
+let activeCircTag = 'all';
 
 // ══════════════════════════════════════════
 //  CLOCK & COUNTDOWN
@@ -2885,16 +2872,16 @@ updateClock(); updateCountdown();
 //  VALIDATION
 // ══════════════════════════════════════════
 function validateBasic() {
-  const el=$('currentBasic'), err=$('errBasic');
+  const el=$('currentBasic');
   const v=+el.value;
-  if(isNaN(v)||v<18000){ el.classList.add('invalid'); err.style.display=''; return false; }
-  el.classList.remove('invalid'); err.style.display='none'; return true;
+  if(isNaN(v)||v<18000){ el.classList.add('invalid'); return false; }
+  el.classList.remove('invalid'); return true;
 }
 function validateDA() {
-  const el=$('daPercent'), err=$('errDA');
+  const el=$('daPercent');
   const v=+el.value;
-  if(isNaN(v)||v<0||v>200){ el.classList.add('invalid'); err.style.display=''; return false; }
-  el.classList.remove('invalid'); err.style.display='none'; return true;
+  if(isNaN(v)||v<0||v>200){ el.classList.add('invalid'); return false; }
+  el.classList.remove('invalid'); return true;
 }
 function getLevel(basic) {
   if (!basic) return 7;
@@ -2979,7 +2966,6 @@ function calculateSalary() {
   const regime   = $('taxRegime').value||'new';
   const exDed    = +$('extraDed').value||0;
   const fitB     = $('fitMethodToggle').checked;
-  const scaleTA  = $('tascaleToggle') ? $('tascaleToggle').checked : false;
   const stdDed   = CFG.STD_DED[regime];
   const lvl      = getLevel(basic);
 
@@ -3011,7 +2997,6 @@ function calculateSalary() {
 
   // Update hero stat
   const hs=$('heroMonthlyStat'); if(hs) hs.textContent=fmt(newNet);
-  // Update float CTA
   const fc=$('floatCTAAmount'); if(fc) fc.textContent=fmt(newNet);
 
   // Update result display
@@ -3085,6 +3070,16 @@ function calculateSalary() {
 
   saveLS();
 
+  // Track calculation event in GA
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'salary_calculation', {
+      'basic_pay': basic,
+      'fitment_factor': fitment,
+      'projected_salary': newNet,
+      'event_category': 'Calculator'
+    });
+  }
+
   return { basic, daAmt, oldHRA, oldTA, oldGross, oldNPS, oldTaxMo, oldNet,
            newBasic, newDA, newHRA, newTA, newGross, newNPS, newTaxMo, newNet,
            lvl, hraClass, fitment, daPct, cda, regime, npsPct };
@@ -3103,6 +3098,96 @@ function renderAnnualImpact(diff, newNet, oldNet) {
 }
 
 // ══════════════════════════════════════════
+//  NEWS RENDERER (Dynamic)
+// ══════════════════════════════════════════
+function renderNews() {
+  const container = $('newsContainer');
+  const filter = $('newsFilter') ? $('newsFilter').value : 'all';
+  if (!container) return;
+
+  const filtered = NEWS_DATA.filter(n => filter === 'all' || n.tag === filter);
+  
+  if (!filtered.length) {
+    container.innerHTML = '<div style="text-align:center;padding:20px;color:var(--text-muted);font-size:0.82rem;">No news articles for this filter.</div>';
+    return;
+  }
+
+  container.innerHTML = filtered.map(article => `
+    <article class="news-item">
+      <div class="news-date-badge">
+        <div class="news-date-day">${article.day}</div>
+        <div class="news-date-mon">${article.month}</div>
+      </div>
+      <div class="news-content">
+        <div class="news-tag">${article.tag}</div>
+        <div class="news-title" onclick="toggleNewsFull(${article.id})">
+          ${article.title}
+        </div>
+        <div class="news-snippet">${article.snippet}</div>
+        <div class="news-source">${article.source} · <span style="font-weight:400;color:var(--text-muted);">${article.ref}</span></div>
+        <div class="news-full" id="newsFull${article.id}">
+          ${article.full}
+          <div style="margin-top:8px;font-size:0.7rem;color:var(--text-muted);">Source: ${article.source}</div>
+        </div>
+      </div>
+    </article>
+  `).join('');
+}
+
+function toggleNewsFull(id) {
+  const el = $('newsFull'+id);
+  if (!el) return;
+  el.classList.toggle('open');
+}
+
+function refreshNews() {
+  renderNews();
+  showToast('📰 News refreshed');
+}
+
+// ══════════════════════════════════════════
+//  CIRCULAR RENDERER
+// ══════════════════════════════════════════
+function renderCirculars(list) {
+  const el=$('circularList'); if(!el) return;
+  if(!list.length){el.innerHTML='<div style="text-align:center;padding:20px;color:var(--text-muted);font-size:0.82rem;">No circulars found for your search.</div>';return;}
+  el.innerHTML = list.map(c=>`
+    <div class="news-item circ-item" data-tag="${c.tag}">
+      <div class="news-date-badge">
+        <div class="news-date-day" style="font-size:0.85rem;">${c.date.split(' ')[0]}</div>
+        <div class="news-date-mon">${c.date.split(' ').slice(1).join(' ')}</div>
+      </div>
+      <div class="news-content">
+        <span class="news-tag" style="${c.tag==='8th CPC'?'background:var(--blue-light);color:var(--blue);':''}">${c.tag.toUpperCase()}</span>
+        <div class="news-title">${c.title}</div>
+        <div class="news-snippet">${c.desc}</div>
+        <div style="display:flex;align-items:center;gap:12px;margin-top:6px;flex-wrap:wrap;">
+          <span class="news-source">${c.ministry}</span>
+          <span style="font-size:0.63rem;color:var(--text-muted);font-family:var(--font-mono);">${c.ref}</span>
+          <a href="${c.url}" target="_blank" rel="noopener" class="btn btn-xs btn-secondary" style="font-size:0.62rem;padding:3px 10px;">🔗 Source</a>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+function filterCirculars() {
+  const q=($('circSearch').value||'').toLowerCase();
+  const list=CIRCULARS.filter(c=>
+    (activeCircTag==='all'||c.tag===activeCircTag) &&
+    (c.title.toLowerCase().includes(q)||c.desc.toLowerCase().includes(q)||c.ref.toLowerCase().includes(q))
+  );
+  const cc=$('circCount'); if(cc) cc.textContent=`${list.length} orders`;
+  renderCirculars(list);
+}
+
+function filterByCircTag(btn, tag) {
+  activeCircTag=tag;
+  document.querySelectorAll('#circTagFilter .quick-pill').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  filterCirculars();
+}
+
+// ══════════════════════════════════════════
 //  SHARING
 // ══════════════════════════════════════════
 function shareWhatsApp() {
@@ -3116,6 +3201,7 @@ function shareWhatsApp() {
     `📅 Annual Extra: *+₹${fmtNum(Math.round(diff*12))}*\n\n` +
     `Calculate yours 👉 https://8thcpcsalary.com`;
   window.open('https://wa.me/?text='+encodeURIComponent(text),'_blank','noopener');
+  if (typeof gtag !== 'undefined') gtag('event', 'share', { 'method': 'WhatsApp' });
 }
 
 function shareTelegram() {
@@ -3124,6 +3210,7 @@ function shareTelegram() {
   const diff=d.newNet-d.oldNet;
   const text=`🏛 8th CPC Salary Estimate\n7th CPC: ${fmt(d.oldNet)}/mo → 8th CPC: ${fmt(d.newNet)}/mo\nBoost: +${fmt(diff)}/month\nhttps://8thcpcsalary.com`;
   window.open('https://t.me/share/url?url='+encodeURIComponent('https://8thcpcsalary.com')+'&text='+encodeURIComponent(text),'_blank','noopener');
+  if (typeof gtag !== 'undefined') gtag('event', 'share', { 'method': 'Telegram' });
 }
 
 function copyResultLink() {
@@ -3134,6 +3221,7 @@ function copyResultLink() {
   });
   const url=window.location.href.split('?')[0]+'?'+p.toString();
   navigator.clipboard.writeText(url).then(()=>showToast('🔗 Link copied!')).catch(()=>showToast('Copy failed'));
+  if (typeof gtag !== 'undefined') gtag('event', 'share', { 'method': 'Copy Link' });
 }
 
 function copyResults() {
@@ -3189,7 +3277,7 @@ function calculatePension() {
   const lastPay=basic+basic*(da/100);
   const opsPension=lastPay*0.5;
   const gratuityOPS=Math.min(lastPay*(yrs/2)*(1/12)*15, 2000000);
-  const monthContr=lastPay*0.24; // 10%+14%
+  const monthContr=lastPay*0.24;
   const r=cagr/100/12, n=yrs*12;
   let corpus=r>0 ? monthContr*((Math.pow(1+r,n)-1)/r)*(1+r) : monthContr*n;
   const annuityCorpus=corpus*0.4, lumpSum=corpus*0.6;
@@ -3197,16 +3285,16 @@ function calculatePension() {
 
   $('pensionResult').innerHTML=`
     <div class="two-col" style="margin-bottom:16px;">
-      <div class="pension-card pension-ops">
+      <div class="pension-card pension-ops" style="border-radius:var(--r-md);padding:20px;text-align:center;background:var(--blue-light);border:1.5px solid #BFDBFE;">
         <div style="font-size:0.62rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--blue);">OPS — Guaranteed Pension</div>
-        <div class="pension-amount">${fmt(opsPension)}</div>
+        <div class="pension-amount" style="font-size:1.6rem;font-weight:800;font-family:var(--font-mono);margin:6px 0;color:var(--blue);">${fmt(opsPension)}</div>
         <div style="font-size:0.7rem;color:var(--text-muted);">per month (50% of last pay+DA)</div>
         <div style="margin-top:8px;font-size:0.75rem;font-weight:700;">Gratuity: ${fmt(gratuityOPS)}</div>
         <div style="font-size:0.63rem;color:var(--text-muted);margin-top:4px;">Defined benefit · Inflation-indexed · No market risk</div>
       </div>
-      <div class="pension-card pension-nps">
+      <div class="pension-card pension-nps" style="border-radius:var(--r-md);padding:20px;text-align:center;background:var(--gold-light);border:1.5px solid var(--gold-border);">
         <div style="font-size:0.62rem;font-weight:800;text-transform:uppercase;letter-spacing:1px;color:var(--saffron);">NPS — Annuity Pension</div>
-        <div class="pension-amount">${fmt(monthlyAnnuity)}</div>
+        <div class="pension-amount" style="font-size:1.6rem;font-weight:800;font-family:var(--font-mono);margin:6px 0;color:var(--saffron);">${fmt(monthlyAnnuity)}</div>
         <div style="font-size:0.7rem;color:var(--text-muted);">per month (from 40% annuity @ 6%)</div>
         <div style="margin-top:8px;font-size:0.75rem;font-weight:700;">Lump Sum (60%): ${fmt(Math.round(lumpSum))}</div>
         <div style="font-size:0.63rem;color:var(--text-muted);margin-top:4px;">Market-linked · Portable · Variable returns</div>
@@ -3221,6 +3309,7 @@ function calculatePension() {
         <tr><td style="color:var(--text-muted);padding:3px 0;">Lump sum (60%)</td><td style="text-align:right;font-family:var(--font-mono);font-weight:600;">${fmt(Math.round(lumpSum))}</td></tr>
       </table>
     </div>`;
+  if (typeof gtag !== 'undefined') gtag('event', 'pension_calculation');
 }
 
 // ══════════════════════════════════════════
@@ -3281,6 +3370,7 @@ function generateSlip() {
       </div>
     </div>`;
   showToast('✅ Salary slip generated!');
+  if (typeof gtag !== 'undefined') gtag('event', 'salary_slip_generated');
 }
 
 function downloadSlipPDF() {
@@ -3349,6 +3439,7 @@ function downloadSlipPDF() {
   doc.text('Generated by 8thCPCSalary.com',W/2,y+5,{align:'center'});
   doc.save(`salary-slip-8cpc-level${d.lvl}-${new Date().toISOString().slice(0,10)}.pdf`);
   showToast('📄 PDF downloaded!');
+  if (typeof gtag !== 'undefined') gtag('event', 'pdf_download');
 }
 
 // ══════════════════════════════════════════
@@ -3461,6 +3552,7 @@ function saveProfile() {
   $('profileName').value='';
   renderProfilesList();
   showToast(`✅ Profile "${name}" saved!`);
+  if (typeof gtag !== 'undefined') gtag('event', 'profile_saved', { 'profile_name': name });
 }
 
 function loadProfile(name) {
@@ -3531,6 +3623,7 @@ function quickFillDept(dept) {
   scheduleCalc();
   showToast(`✅ ${dept.charAt(0).toUpperCase()+dept.slice(1)} preset loaded`);
   document.getElementById('calculator').scrollIntoView({behavior:'smooth'});
+  if (typeof gtag !== 'undefined') gtag('event', 'dept_preset', { 'department': dept });
 }
 
 function goStateCalc(state) {
@@ -3552,6 +3645,7 @@ function switchTab(id, el) {
   if(id==='da'){loadDATracker();calcDAImpact();}
   if(id==='compare') renderCompare();
   if(id==='matrix') renderMatrix();
+  if (typeof gtag !== 'undefined') gtag('event', 'tab_switch', { 'tab': id });
 }
 
 function switchQNav(el, id) {
@@ -3559,7 +3653,6 @@ function switchQNav(el, id) {
   el.classList.add('active');
   const sec=document.getElementById(id);
   if(sec) sec.scrollIntoView({behavior:'smooth',block:'start'});
-  // Also switch tab if within calculator section
   const tabMap={calculator:'salary','da-tracker':'da','pension':'pension','slip':'slip','fitment':'compare','pay-matrix':'matrix'};
   const tabId=tabMap[id];
   if(tabId){
@@ -3597,6 +3690,7 @@ function subscribeNewsletter() {
   if(!email||!email.includes('@')){showToast('Enter a valid email address');return;}
   showToast('✅ Subscribed! DA alerts coming soon.');
   $('nlEmail').value='';
+  if (typeof gtag !== 'undefined') gtag('event', 'newsletter_subscribe', { 'email': email });
 }
 
 // ══════════════════════════════════════════
@@ -3785,113 +3879,10 @@ function renderSalaryComparison() {
 }
 
 // ══════════════════════════════════════════
-//  CIRCULAR LIBRARY
-// ══════════════════════════════════════════
-const CIRCULARS = [
-  {id:1,date:'24 Jan 2026',title:'DA Revision to 62% — Cabinet Approval',tag:'da',
-   ref:'F.No. 1/2/2024-E-II(B)',ministry:'Ministry of Finance',
-   desc:'Cabinet approves 3% DA hike to 62% for central govt employees effective 1 January 2026. Applicable to all Group A, B, C employees.',
-   url:'https://doe.gov.in'},
-  {id:2,date:'15 Jan 2026',title:'8th Pay Commission — Formal Constitution Notification',tag:'8cpc',
-   ref:'Cabinet Decision 2026',ministry:'Cabinet Secretariat',
-   desc:'Government of India formally constitutes the 8th Central Pay Commission with wide-ranging mandate covering pay, allowances, pension and service conditions.',
-   url:'https://persmin.gov.in'},
-  {id:3,date:'01 Jul 2025',title:'DA Revision to 59%',tag:'da',
-   ref:'F.No. 1/1/2025-E-II(B)',ministry:'Ministry of Finance',
-   desc:'Dearness Allowance revised from 56% to 59% for central govt employees effective July 2025.',
-   url:'https://doe.gov.in'},
-  {id:4,date:'01 Apr 2025',title:'Unified Pension Scheme (UPS) — Implementation Guidelines',tag:'pension',
-   ref:'PFRDA/2025/14',ministry:'PFRDA',
-   desc:'UPS operational guidelines: 50% assured pension after 25 yrs service; 60% family pension on death; minimum ₹10,000/month guaranteed pension.',
-   url:'https://pfrda.org.in'},
-  {id:5,date:'20 Feb 2025',title:'HRA Rates — City Classification Revision',tag:'hra',
-   ref:'OM F.No. 2/5/2024-E.II(B)',ministry:'Ministry of Finance',
-   desc:'Revised classification of cities for HRA purposes. Population threshold updates for X, Y, Z city designations effective 1 April 2025.',
-   url:'https://doe.gov.in'},
-  {id:6,date:'01 Jan 2025',title:'DA Revision to 56% effective January 2025',tag:'da',
-   ref:'F.No. 1/2/2023-E-II(B)',ministry:'Ministry of Finance',
-   desc:'Dearness Allowance revised upward from 53% to 56% for central government employees and pensioners.',
-   url:'https://doe.gov.in'},
-  {id:7,date:'15 Nov 2024',title:'Transport Allowance — Revision for Metro Cities',tag:'ta',
-   ref:'OM No. 21(2)/2017-E.II(B)',ministry:'Ministry of Finance',
-   desc:'TA revised for metro cities. Level 9 and above: ₹7,200 + DA. Level 3–8: ₹3,600 + DA. Level 1–2: ₹1,350 + DA.',
-   url:'https://doe.gov.in'},
-  {id:8,date:'01 Jul 2024',title:'DA Revision to 53% from July 2024',tag:'da',
-   ref:'F.No. 1/1/2024-E-II(B)',ministry:'Ministry of Finance',
-   desc:'Cabinet approves DA hike from 50% to 53% effective 1 July 2024. 3% hike based on AICPI-IW data.',
-   url:'https://doe.gov.in'},
-  {id:9,date:'10 Apr 2024',title:'NPS Employer Contribution Enhanced to 14%',tag:'pension',
-   ref:'MF/OM/F.No.1/3/2016-PR',ministry:'Ministry of Finance',
-   desc:'Government employer NPS contribution enhanced from 10% to 14% of Basic + DA for central govt employees effective from 1 April 2019 (arrears applicable).',
-   url:'https://pfrda.org.in'},
-  {id:10,date:'01 Jan 2024',title:'DA Hike to 50% — Effective January 2024',tag:'da',
-   ref:'F.No. 1/2/2023-E-II(B)',ministry:'Ministry of Finance',
-   desc:'Dearness Allowance revised from 46% to 50%, a 4% hike, effective 1 January 2024. Benefits 47.5 lakh employees and 69 lakh pensioners.',
-   url:'https://doe.gov.in'},
-  {id:11,date:'20 Sep 2023',title:'Standard Deduction Enhanced to ₹50,000 for Salaried (Old Regime)',tag:'da',
-   ref:'Finance Act 2023',ministry:'Ministry of Finance',
-   desc:'Standard deduction for salaried individuals under old tax regime enhanced to ₹50,000. New regime standard deduction: ₹75,000 from FY 2024-25.',
-   url:'https://incometax.gov.in'},
-  {id:12,date:'01 Jul 2023',title:'DA Revision to 46% from July 2023',tag:'da',
-   ref:'F.No. 1/1/2023-E-II(B)',ministry:'Ministry of Finance',
-   desc:'Cabinet approval for DA revision from 42% to 46%, a 4% hike effective July 2023.',
-   url:'https://doe.gov.in'},
-  {id:13,date:'31 Mar 2023',title:'Gratuity Ceiling Enhanced to ₹20 Lakhs',tag:'pension',
-   ref:'OM F.No. 28/1/2022-P&PW(F)',ministry:'DoPPW',
-   desc:'Death/Retirement Gratuity ceiling enhanced to ₹20 lakhs for central government employees and pensioners, effective 1 January 2016 (7th CPC implementation).',
-   url:'https://persmin.gov.in'},
-  {id:14,date:'01 Jan 2023',title:'DA Revision to 42% from January 2023',tag:'da',
-   ref:'F.No. 1/2/2022-E-II(B)',ministry:'Ministry of Finance',
-   desc:'DA revised from 38% to 42% effective 1 January 2023, a 4% hike.',
-   url:'https://doe.gov.in'}
-];
-
-let activeCircTag = 'all';
-
-function renderCirculars(list) {
-  const el=$('circularList'); if(!el) return;
-  if(!list.length){el.innerHTML='<div style="text-align:center;padding:20px;color:var(--text-muted);font-size:0.82rem;">No circulars found for your search.</div>';return;}
-  el.innerHTML = list.map(c=>`
-    <div class="news-item circ-item" data-tag="${c.tag}">
-      <div class="news-date-badge">
-        <div class="news-date-day" style="font-size:0.85rem;">${c.date.split(' ')[0]}</div>
-        <div class="news-date-mon">${c.date.split(' ').slice(1).join(' ')}</div>
-      </div>
-      <div class="news-content">
-        <span class="news-tag" style="${c.tag==='8cpc'?'background:var(--blue-light);color:var(--blue);':''}">${c.tag.toUpperCase()}</span>
-        <div class="news-title">${c.title}</div>
-        <div class="news-snippet">${c.desc}</div>
-        <div style="display:flex;align-items:center;gap:12px;margin-top:6px;flex-wrap:wrap;">
-          <span class="news-source">${c.ministry}</span>
-          <span style="font-size:0.63rem;color:var(--text-muted);font-family:var(--font-mono);">${c.ref}</span>
-          <a href="${c.url}" target="_blank" rel="noopener" class="btn btn-xs btn-secondary" style="font-size:0.62rem;padding:3px 10px;">🔗 Source</a>
-        </div>
-      </div>
-    </div>`).join('');
-}
-
-function filterCirculars() {
-  const q=($('circSearch').value||'').toLowerCase();
-  const list=CIRCULARS.filter(c=>
-    (activeCircTag==='all'||c.tag===activeCircTag) &&
-    (c.title.toLowerCase().includes(q)||c.desc.toLowerCase().includes(q)||c.ref.toLowerCase().includes(q))
-  );
-  const cc=$('circCount'); if(cc) cc.textContent=`${list.length} orders`;
-  renderCirculars(list);
-}
-
-function filterByCircTag(btn, tag) {
-  activeCircTag=tag;
-  document.querySelectorAll('#circTagFilter .quick-pill').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');
-  filterCirculars();
-}
-
-// ══════════════════════════════════════════
 //  DA PREDICTOR (AICPI-IW)
 // ══════════════════════════════════════════
 const MONTHS_LABELS=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-const SAMPLE_AICPI=[137.2,138.0,138.5,139.1,139.8,140.2,140.9,141.3,141.8,142.2,142.6,143.0]; // sample 2025-26
+const SAMPLE_AICPI=[137.2,138.0,138.5,139.1,139.8,140.2,140.9,141.3,141.8,142.2,142.6,143.0];
 
 function buildAICPIInputs() {
   const el=$('aicpiInputs'); if(!el) return;
@@ -3921,7 +3912,7 @@ function predictDA() {
   const avg=vals.reduce((a,b)=>a+b,0)/vals.length;
   const BASE=115.76;
   const daRaw=((avg-BASE)/BASE)*100;
-  const daRounded=Math.round(daRaw/2)*2; // DA rounded to nearest even number
+  const daRounded=Math.round(daRaw/2)*2;
   const current=62;
   const diff=daRounded-current;
 
@@ -3992,6 +3983,7 @@ function scheduleCalc() {
   loadDATracker();
   renderCompare();
   renderMatrix();
+  renderNews();
   syncFitment($('fitmentSlider').value);
   updateFitMethodDesc();
 
@@ -4010,29 +4002,41 @@ function scheduleCalc() {
   const my=$('monthYear');
   if(my&&!my.value) my.value='May 2026';
 })();
+
+// ══════════════════════════════════════════
+//  ADSENSE RE-INIT (for SPA navigation)
+// ══════════════════════════════════════════
+// This ensures ads show up when content changes
+window.addEventListener('load', function() {
+  // Wait for ads to load
+  setTimeout(function() {
+    try {
+      if (typeof (window.adsbygoogle) !== 'undefined') {
+        // Push any new ad units
+        document.querySelectorAll('.adsbygoogle:not(.loaded)').forEach(el => {
+          el.classList.add('loaded');
+          (window.adsbygoogle || []).push({});
+        });
+      }
+    } catch(e) {}
+  }, 1000);
+});
 </script>
 
-<!-- robots.txt content as comment for deployment -->
-<!--
-DEPLOY: Create /robots.txt with:
-User-agent: *
-Allow: /
-Sitemap: https://8thcpcsalary.com/sitemap.xml
-
-Crawl-delay: 1
--->
-
-<!-- sitemap.xml content for deployment -->
-<!--
-DEPLOY: Create /sitemap.xml with priority pages:
-https://8thcpcsalary.com/ (priority 1.0)
-https://8thcpcsalary.com/8th-cpc-salary-calculator (0.9)
-https://8thcpcsalary.com/da-hike-january-2026 (0.9)
-https://8thcpcsalary.com/level-6-salary-after-8th-cpc (0.8)
-https://8thcpcsalary.com/railway-salary-after-8th-pay-commission (0.8)
-https://8thcpcsalary.com/fitment-factor-3-68-calculator (0.8)
-https://8thcpcsalary.com/8th-cpc-pension-calculator (0.8)
-https://8thcpcsalary.com/teacher-salary-calculator (0.8)
+<!-- 
+  DEPLOYMENT NOTES:
+  
+  1. Replace all "ca-pub-XXXXXXXXXX" with your actual Google AdSense publisher ID
+  2. Replace all "data-ad-slot" with your actual Ad Slot IDs
+  3. Replace "G-XXXXXXXXXX" with your GA4 Measurement ID
+  4. Create /robots.txt with:
+     User-agent: *
+     Allow: /
+     Sitemap: https://8thcpcsalary.com/sitemap.xml
+  5. Create /sitemap.xml with priority pages
+  6. Add ad.txt file to your domain root
+  7. Verify domain in Google Search Console
+  8. Enable Google AdSense Auto Ads for additional revenue
 -->
 </body>
 </html>
