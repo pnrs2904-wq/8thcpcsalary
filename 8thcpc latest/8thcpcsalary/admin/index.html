@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CMS Dashboard | 8thCPCSalary.com</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="loginView">
+  <div class="login-box">
+    <div class="brand" style="justify-content:center;margin-bottom:8px"><span class="tri"></span>CMS Login</div>
+    <p class="muted" style="text-align:center;margin-bottom:18px">Enter the admin passphrase to manage site data.</p>
+    <div class="field"><label>Passphrase</label><input type="password" id="pw" onkeydown="if(event.key==='Enter')doLogin()"></div>
+    <button class="btn btn-primary" style="width:100%" onclick="doLogin()">Sign in</button>
+    <p class="field-hint" style="text-align:center;margin-top:12px">Default: <code>admin8cpc</code> — change it in <code>admin/index.html</code>.</p>
+  </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashView" class="admin-shell" style="display:none">
+  <aside class="admin-side">
+    <div class="brand"><span class="tri"></span>CPC CMS</div>
+    <nav class="admin-nav">
+      <button class="active" onclick="showPanel('data',this)">📊 DA &amp; 8th CPC</button>
+      <button onclick="showPanel('news',this)">📰 News</button>
+      <button onclick="showPanel('blog',this)">📝 Blog Posts</button>
+      <button onclick="showPanel('export',this)">💾 Export / Deploy</button>
+    </nav>
+    <div style="margin-top:24px">
+      <a class="btn btn-secondary btn-sm" href="../" target="_blank" style="width:100%;display:block;text-align:center;margin-bottom:8px">↗ View Site</a>
+      <button class="btn btn-secondary btn-sm" style="width:100%" onclick="logout()">Sign out</button>
+    </div>
+  </aside>
+
+  <main class="admin-main">
+    <div id="saveBar" style="position:sticky;top:0;background:var(--india-green);color:#fff;padding:10px 16px;border-radius:var(--r-sm);margin-bottom:20px;display:none;align-items:center;justify-content:space-between">
+      <span>You have unsaved changes.</span>
+      <button class="btn btn-sm" style="background:#fff" onclick="saveAll()">Save &amp; Publish</button>
+    </div>
+
+    <!-- DATA PANEL -->
+    <section id="dataPanel" class="admin-panel active">
+      <h2 class="section-title">DA &amp; 8th CPC Figures</h2>
+      <div class="admin-card">
+        <div class="card-title" style="margin-bottom:14px">Dearness Allowance</div>
+        <div class="two-col">
+          <div class="field"><label>Current DA (%)</label><input type="number" id="f_daCurrent" oninput="dirty()"></div>
+          <div class="field"><label>Current effective date</label><input type="text" id="f_daCurEff" oninput="dirty()"></div>
+          <div class="field"><label>Next expected DA (%)</label><input type="number" id="f_daNext" oninput="dirty()"></div>
+          <div class="field"><label>Next effective date</label><input type="text" id="f_daNextEff" oninput="dirty()"></div>
+        </div>
+        <div class="field"><label>DA note (shown in tooltips/news)</label><textarea id="f_daNote" rows="2" oninput="dirty()"></textarea></div>
+      </div>
+      <div class="admin-card">
+        <div class="card-title" style="margin-bottom:14px">8th Pay Commission</div>
+        <div class="two-col">
+          <div class="field"><label>Fitment — low</label><input type="number" step="0.01" id="f_fitLow" oninput="dirty()"></div>
+          <div class="field"><label>Fitment — expected</label><input type="number" step="0.01" id="f_fitExp" oninput="dirty()"></div>
+          <div class="field"><label>Fitment — high (union)</label><input type="number" step="0.01" id="f_fitHigh" oninput="dirty()"></div>
+          <div class="field"><label>Slider default</label><input type="number" step="0.01" id="f_fitDefault" oninput="dirty()"></div>
+        </div>
+        <div class="field"><label>Status text</label><textarea id="f_cpcStatus" rows="2" oninput="dirty()"></textarea></div>
+      </div>
+    </section>
+
+    <!-- NEWS PANEL -->
+    <section id="newsPanel" class="admin-panel">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+        <h2 class="section-title" style="margin:0">News Items</h2>
+        <button class="btn btn-primary btn-sm" onclick="addNews()">+ Add news</button>
+      </div>
+      <div id="newsList"></div>
+    </section>
+
+    <!-- BLOG PANEL -->
+    <section id="blogPanel" class="admin-panel">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+        <h2 class="section-title" style="margin:0">Blog Posts</h2>
+        <button class="btn btn-primary btn-sm" onclick="addBlog()">+ Add post</button>
+      </div>
+      <div id="blogList"></div>
+    </section>
+
+    <!-- EXPORT PANEL -->
+    <section id="exportPanel" class="admin-panel">
+      <h2 class="section-title">Export / Deploy</h2>
+      <div class="admin-card">
+        <p class="muted" style="margin-bottom:14px">Changes you save are stored in this browser and merged into the live site automatically (via <code>data.js</code> + localStorage). To make them permanent for all visitors, copy the JSON below into the <code>DEFAULT_DATA</code> object in <code>data.js</code> and redeploy.</p>
+        <div style="display:flex;gap:8px;margin-bottom:12px">
+          <button class="btn btn-primary btn-sm" onclick="copyJSON()">📋 Copy JSON</button>
+          <button class="btn btn-secondary btn-sm" onclick="downloadJSON()">⬇ Download data.json</button>
+          <button class="btn btn-secondary btn-sm" onclick="resetOverrides()">↺ Reset to defaults</button>
+        </div>
+        <textarea id="exportBox" rows="16" style="width:100%;font-family:var(--font-mono);font-size:.78rem"></textarea>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script src="../data.js"></script>
+<script>
+/* ---- Simple client-side gate (obfuscation only, not real security) ---- */
+const ADMIN_PASS = "admin8cpc"; // change this before deploying
+function doLogin(){
+  if(document.getElementById("pw").value===ADMIN_PASS){
+    sessionStorage.setItem("cpc_admin","1");boot();
+  } else { alert("Wrong passphrase."); }
+}
+function logout(){sessionStorage.removeItem("cpc_admin");location.reload();}
+
+let MODEL=null, isDirty=false;
+function dirty(){isDirty=true;document.getElementById("saveBar").style.display="flex";}
+
+function boot(){
+  document.getElementById("loginView").style.display="none";
+  document.getElementById("dashView").style.display="grid";
+  // start from current merged data (defaults + any saved overrides)
+  MODEL=JSON.parse(JSON.stringify(window.CPC_DATA));
+  fillDataPanel();renderNews();renderBlog();refreshExport();
+}
+
+/* ---- DATA panel ---- */
+function fillDataPanel(){
+  const d=MODEL.da,c=MODEL.cpc8;
+  set("f_daCurrent",d.current);set("f_daCurEff",d.currentEffective);
+  set("f_daNext",d.next);set("f_daNextEff",d.nextEffective);set("f_daNote",d.note);
+  set("f_fitLow",c.fitmentLow);set("f_fitExp",c.fitmentExpected);
+  set("f_fitHigh",c.fitmentHigh);set("f_fitDefault",c.fitmentDefault);set("f_cpcStatus",c.status);
+}
+function pullDataPanel(){
+  MODEL.da.current=num("f_daCurrent");MODEL.da.currentEffective=val("f_daCurEff");
+  MODEL.da.next=num("f_daNext");MODEL.da.nextEffective=val("f_daNextEff");MODEL.da.note=val("f_daNote");
+  MODEL.cpc8.fitmentLow=num("f_fitLow");MODEL.cpc8.fitmentExpected=num("f_fitExp");
+  MODEL.cpc8.fitmentHigh=num("f_fitHigh");MODEL.cpc8.fitmentDefault=num("f_fitDefault");MODEL.cpc8.status=val("f_cpcStatus");
+}
+
+/* ---- NEWS panel ---- */
+function renderNews(){
+  document.getElementById("newsList").innerHTML=MODEL.news.map((n,i)=>
+    '<div class="admin-card"><div class="two-col">'+
+    '<div class="field"><label>Date</label><input type="date" value="'+n.date+'" oninput="MODEL.news['+i+'].date=this.value;dirty()"></div>'+
+    '<div class="field"><label>Category</label><select oninput="MODEL.news['+i+'].category=this.value;dirty()">'+catOpts(n.category)+'</select></div>'+
+    '</div><div class="field"><label>Title</label><input type="text" value="'+attr(n.title)+'" oninput="MODEL.news['+i+'].title=this.value;dirty()"></div>'+
+    '<div class="field"><label>Body</label><textarea rows="2" oninput="MODEL.news['+i+'].body=this.value;dirty()">'+esc(n.body)+'</textarea></div>'+
+    '<div class="field"><label>Source</label><input type="text" value="'+attr(n.source||"")+'" oninput="MODEL.news['+i+'].source=this.value;dirty()"></div>'+
+    '<button class="btn btn-sm" style="color:var(--red)" onclick="delNews('+i+')">Delete</button></div>'
+  ).join("");
+}
+function addNews(){MODEL.news.unshift({date:new Date().toISOString().slice(0,10),category:"DA",title:"New update",body:"",source:""});renderNews();dirty();}
+function delNews(i){if(confirm("Delete this news item?")){MODEL.news.splice(i,1);renderNews();dirty();}}
+
+/* ---- BLOG panel ---- */
+function renderBlog(){
+  document.getElementById("blogList").innerHTML=MODEL.blog.map((p,i)=>
+    '<div class="admin-card"><div class="two-col">'+
+    '<div class="field"><label>Title</label><input type="text" value="'+attr(p.title)+'" oninput="MODEL.blog['+i+'].title=this.value;dirty()"></div>'+
+    '<div class="field"><label>Slug (URL)</label><input type="text" value="'+attr(p.slug)+'" oninput="MODEL.blog['+i+'].slug=this.value;dirty()"></div>'+
+    '<div class="field"><label>Category</label><select oninput="MODEL.blog['+i+'].category=this.value;dirty()">'+catOpts(p.category)+'</select></div>'+
+    '<div class="field"><label>Date</label><input type="date" value="'+p.date+'" oninput="MODEL.blog['+i+'].date=this.value;dirty()"></div>'+
+    '<div class="field"><label>Author</label><input type="text" value="'+attr(p.author)+'" oninput="MODEL.blog['+i+'].author=this.value;dirty()"></div>'+
+    '</div><div class="field"><label>Excerpt</label><textarea rows="2" oninput="MODEL.blog['+i+'].excerpt=this.value;dirty()">'+esc(p.excerpt)+'</textarea></div>'+
+    '<div class="field"><label>Body (one paragraph per line)</label><textarea rows="8" oninput="MODEL.blog['+i+'].body=this.value.split(/\\n+/).filter(Boolean);dirty()">'+esc((p.body||[]).join("\n\n"))+'</textarea></div>'+
+    '<div style="display:flex;gap:8px"><a class="btn btn-secondary btn-sm" href="../blog.html?post='+encodeURIComponent(p.slug)+'" target="_blank">Preview</a>'+
+    '<button class="btn btn-sm" style="color:var(--red)" onclick="delBlog('+i+')">Delete</button></div></div>'
+  ).join("");
+}
+function addBlog(){MODEL.blog.unshift({slug:"new-post-"+Date.now(),title:"New post",category:"8th CPC",author:"Editorial Team",date:new Date().toISOString().slice(0,10),excerpt:"",cover:"",body:[""]});renderBlog();dirty();}
+function delBlog(i){if(confirm("Delete this post?")){MODEL.blog.splice(i,1);renderBlog();dirty();}}
+
+/* ---- Save / Export ---- */
+function saveAll(){
+  pullDataPanel();
+  MODEL.meta.lastUpdated=new Date().toISOString().slice(0,10);
+  MODEL.meta.dataVersion=(MODEL.meta.dataVersion||0)+1;
+  localStorage.setItem("cpc_cms_data",JSON.stringify(MODEL));
+  isDirty=false;document.getElementById("saveBar").style.display="none";
+  refreshExport();
+  alert("Saved & published. The live site now reflects your changes.");
+}
+function refreshExport(){pullDataPanel();document.getElementById("exportBox").value=JSON.stringify(MODEL,null,2);}
+function copyJSON(){refreshExport();navigator.clipboard.writeText(document.getElementById("exportBox").value).then(()=>alert("JSON copied. Paste into DEFAULT_DATA in data.js for a permanent deploy."));}
+function downloadJSON(){refreshExport();const b=new Blob([document.getElementById("exportBox").value],{type:"application/json"});const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="data.json";a.click();}
+function resetOverrides(){if(confirm("Remove all saved overrides and revert to code defaults?")){localStorage.removeItem("cpc_cms_data");alert("Reverted. Reloading.");location.reload();}}
+
+/* ---- Panels ---- */
+function showPanel(name,btn){
+  document.querySelectorAll(".admin-panel").forEach(p=>p.classList.remove("active"));
+  document.getElementById(name+"Panel").classList.add("active");
+  document.querySelectorAll(".admin-nav button").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+  if(name==="export")refreshExport();
+}
+
+/* ---- utils ---- */
+function set(id,v){document.getElementById(id).value=v;}
+function val(id){return document.getElementById(id).value;}
+function num(id){return parseFloat(document.getElementById(id).value)||0;}
+function esc(s){return String(s==null?"":s).replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"}[c]));}
+function attr(s){return String(s==null?"":s).replace(/"/g,"&quot;");}
+function catOpts(sel){return ["DA","8th CPC","Pension","Fitment"].map(c=>'<option'+(c===sel?" selected":"")+'>'+c+'</option>').join("");}
+
+if(sessionStorage.getItem("cpc_admin")==="1")boot();
+</script>
+</body>
+</html>
