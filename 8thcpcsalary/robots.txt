@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /search
+
+Sitemap: https://8thcpcsalary.com/sitemap.xml
+Host: 8thcpcsalary.com
