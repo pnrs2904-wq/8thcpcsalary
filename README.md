@@ -66,3 +66,4 @@ saved to `localStorage["cpc_cms_data"]` on top. The site, blog and admin all rea
 same merged `window.CPC_DATA`, so one edit updates the ticker, hero stats, calculator
 defaults, news feed and FAQ everywhere. localStorage is per-browser — use Export to
 make an edit global.
+Production deployment sync.
