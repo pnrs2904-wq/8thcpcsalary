@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog | 8th CPC Salary, DA &amp; Pension Guides — 8thCPCSalary.com</title>
+<meta name="description" content="Guides and explainers on the 8th Pay Commission: fitment factor, DA hikes, pay matrix, pension and salary comparisons for central government employees.">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<link rel="canonical" href="https://8thcpcsalary.com/blog.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-head"><div class="wrap head-inner">
+  <a class="brand" href="/"><span class="tri"></span>8thCPCSalary.com</a>
+  <button class="nav-toggle" onclick="document.querySelector('.main-nav').classList.toggle('open')" aria-label="Menu">☰</button>
+  <nav class="main-nav">
+    <a href="/#calculator">Calculator</a>
+    <a href="/#news">News</a>
+    <a href="blog.html" class="active">Blog</a>
+    <a href="/#faq">FAQ</a>
+  </nav>
+</div></header>
+
+<main class="wrap" style="padding:32px 0 60px" id="blogRoot"></main>
+
+<footer class="site-foot"><div class="wrap">
+  <div class="foot-bottom">© 2026 8thCPCSalary.com · All figures are unofficial estimates. Verify against official MoF/DoPT notifications.</div>
+</div></footer>
+
+<script src="data.js"></script>
+<script>
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+function fmt(d){try{return new Date(d).toLocaleDateString("en-IN",{day:"numeric",month:"long",year:"numeric"});}catch(e){return d;}}
+
+function renderList(){
+  const posts=(window.CPC_DATA.blog||[]).slice().sort((a,b)=>b.date.localeCompare(a.date));
+  document.title="Blog | 8th CPC Salary, DA & Pension Guides — 8thCPCSalary.com";
+  setCanonical("https://8thcpcsalary.com/blog.html");
+  document.getElementById("blogRoot").innerHTML=
+    '<div class="section-eyebrow">Guides</div><h1 class="section-title">8th CPC Blog</h1>'+
+    '<div class="blog-grid">'+posts.map(p=>
+      '<a class="blog-card" href="blog.html?post='+encodeURIComponent(p.slug)+'">'+
+      '<span class="blog-cat">'+esc(p.category)+'</span>'+
+      '<h3>'+esc(p.title)+'</h3>'+
+      '<div class="blog-meta">'+esc(p.author)+' · '+fmt(p.date)+'</div>'+
+      '<div class="blog-excerpt">'+esc(p.excerpt)+'</div>'+
+      '<span class="blog-read">Read more →</span></a>'
+    ).join("")+'</div>';
+}
+
+function renderPost(slug){
+  const p=(window.CPC_DATA.blog||[]).find(x=>x.slug===slug);
+  if(!p){renderList();return;}
+  document.title=p.title+" | 8thCPCSalary.com";
+  setMeta("description",p.excerpt);
+  setCanonical("https://8thcpcsalary.com/blog.html?post="+encodeURIComponent(p.slug));
+  injectArticleSchema(p);
+  document.getElementById("blogRoot").innerHTML=
+    '<article class="post"><a class="back-link" href="blog.html">← All posts</a>'+
+    '<span class="blog-cat">'+esc(p.category)+'</span>'+
+    '<h1>'+esc(p.title)+'</h1>'+
+    '<div class="post-meta">'+esc(p.author)+' · '+fmt(p.date)+'</div>'+
+    p.body.map(par=>'<p>'+esc(par)+'</p>').join("")+
+    '<a class="back-link" href="blog.html">← All posts</a></article>';
+}
+
+function setCanonical(url){
+  let l=document.querySelector('link[rel="canonical"]');
+  if(!l){l=document.createElement("link");l.rel="canonical";document.head.appendChild(l);}
+  l.href=url;
+}
+function setMeta(name,content){
+  let m=document.querySelector('meta[name="'+name+'"]');
+  if(!m){m=document.createElement("meta");m.name=name;document.head.appendChild(m);}
+  m.content=content;
+}
+function injectArticleSchema(p){
+  const old=document.getElementById("artSchema");if(old)old.remove();
+  const s=document.createElement("script");s.type="application/ld+json";s.id="artSchema";
+  s.textContent=JSON.stringify({"@context":"https://schema.org","@type":"Article","headline":p.title,"datePublished":p.date,"author":{"@type":"Organization","name":p.author},"publisher":{"@type":"Organization","name":"8thCPCSalary.com"},"description":p.excerpt});
+  document.head.appendChild(s);
+}
+
+(function(){
+  const slug=new URLSearchParams(location.search).get("post");
+  if(slug)renderPost(slug);else renderList();
+})();
+</script>
+</body>
+</html>
